@@ -1,5 +1,9 @@
 import csv
 
+# Os dados estão em ordem por dia, são cinco dados de cada dia por vez
+# Por ex. é S S S S S -> T T T T T
+#           1 2 3 4 5    1 2 3 4 5
+
 data = [
     {'dia': 'Seg', 'linha': 1, 'requests': 1504},
     {'dia': 'Seg', 'linha': 2, 'requests': 2025},
