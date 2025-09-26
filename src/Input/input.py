@@ -1,4 +1,5 @@
 import csv
+import numpy as np
 
 # Os dados estão em ordem por dia, são cinco dados de cada dia por vez
 # Por ex. é S S S S S -> T T T T T
@@ -76,6 +77,32 @@ data = [
     {'dia': 'Dom', 'linha': 4, 'requests': 229},
     {'dia': 'Dom', 'linha': 5, 'requests': 57},
 ]
+
+np.random.seed(0)
+
+senoide_l1 = np.round(np.abs(np.sin(np.linspace(0, 24, 28)) * 800 - np.sin(np.linspace(0, 24, 28) + np.pi/2)* 800 + 1500))
+
+senoide_l2 = np.round(np.abs(np.sin(np.linspace(0, 24, 28) - np.pi/3) * 700 + 1500))
+
+senoide_l3 = np.round(np.abs(np.sin(np.linspace(0, 24, 28) - np.pi/3) * 600 + 800))
+
+senoide_l4 = np.round(np.abs(np.sin(np.linspace(0, 24, 28) - np.pi/1.3) * 700 + 100))
+
+senoide_l5 = np.round(np.abs(np.sin(np.linspace(0, 24, 28) - np.pi/1.5) * 400 + 200))
+
+
+
+
+i = 0
+for j in range(4):
+  for dia in ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab', 'Dom']:
+      data.append({'dia': dia, 'linha': 1, 'requests': senoide_l1[i]})
+      data.append({'dia': dia, 'linha': 2, 'requests': senoide_l2[i]})
+      data.append({'dia': dia, 'linha': 3, 'requests': senoide_l3[i]})
+      data.append({'dia': dia, 'linha': 4, 'requests': senoide_l4[i]})
+      data.append({'dia': dia, 'linha': 5, 'requests': senoide_l5[i]})
+      i = i + 1
+       
 
 with open('dados_onibus.csv', 'w', newline='') as csvfile:
     fieldnames = ['dia', 'linha', 'requests']
