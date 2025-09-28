@@ -10,7 +10,7 @@ Um simulador modular de otimização para a alocação da frota de ônibus em um
 
 Apenas clone o repositório normalmente.
 
-```git
+```shell
 git clone https://github.com/Laginho/SmartCity-Simulator.git
 ```
 
